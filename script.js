@@ -16,21 +16,30 @@ function generatePassword() {
   var upperCase = confirm("Would you like uppercase letters?")
   if (upperCase) {
     chosenArr = upArr.concat(chosenArr);
+    alert("Uppercase letters will be included.")
   }
 
   var lowerCase = confirm("Would you like lowercase letters?")
   if (lowerCase) {
     chosenArr = lowArr.concat(chosenArr);
+    alert("Ok! Lowercase. Good choice.")
   }
 
   var numbers = confirm("Would you like numbers?")
   if (numbers) {
     chosenArr = numbArr.concat(chosenArr);
+    alert("There's going to be numbers in there too.")
   }
 
   var special = confirm("Would you like special characters?")
   if (special) {
     chosenArr = specialArr.concat(chosenArr);
+    alert("This password is going to be extra special now.")
+  }
+
+  if (!lowerCase && !upperCase && !number && !special) {
+    alert("Your password can't be made out of air. You have to choose something!")
+    return null;
   }
 
   console.log(chosenArr);
@@ -39,9 +48,7 @@ function generatePassword() {
 
   for (var i = 0; i < passLength; i++) {
     finalPassword = finalPassword + chosenArr[Math.floor(Math.random()* chosenArr.length)];
-    console.log(finalPassword);
   }
-
   return finalPassword;
 }
 
