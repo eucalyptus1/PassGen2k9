@@ -15,25 +15,34 @@ function generatePassword() {
 
   var upperCase = confirm("Would you like uppercase letters?")
   if (upperCase) {
-    chosenArr.push(upArr);
+    chosenArr = upArr.concat(chosenArr);
   }
 
   var lowerCase = confirm("Would you like lowercase letters?")
   if (lowerCase) {
-    chosenArr.push(lowArr);
+    chosenArr = lowArr.concat(chosenArr);
   }
 
   var numbers = confirm("Would you like numbers?")
   if (numbers) {
-    chosenArr.push(numbArr);
+    chosenArr = numbArr.concat(chosenArr);
   }
 
   var special = confirm("Would you like special characters?")
   if (special) {
-    chosenArr.push(specialArr);
+    chosenArr = specialArr.concat(chosenArr);
   }
 
   console.log(chosenArr);
+
+  var finalPassword = "";
+
+  for (var i = 0; i < passLength; i++) {
+    finalPassword = finalPassword + chosenArr[Math.floor(Math.random()* chosenArr.length)];
+    console.log(finalPassword);
+  }
+
+  return finalPassword;
 }
 
 
